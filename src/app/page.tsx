@@ -58,6 +58,12 @@ export default function Home() {
           >
             🚀 Open Testing Panel
           </Link>
+          <Link
+            href="/dashboard?providerId=1"
+            className="flex items-center justify-center gap-2 w-full sm:w-auto h-12 px-8 rounded-xl bg-slate-900 hover:bg-slate-800 text-sm font-semibold text-slate-200 border border-slate-800 hover:border-slate-700 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+          >
+            📊 View Provider Dashboard
+          </Link>
         </div>
 
         {/* Core Architecture Highlights */}

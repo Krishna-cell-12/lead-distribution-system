@@ -72,9 +72,8 @@ export default function ClientTester({ providers, services }: Props) {
     setConcurrencyResults([]);
 
     const requests = Array.from({ length: 10 }).map((_, index) => {
-      const customerName = `ConcurrentCustomer_${index + 1}`;
-      // Use different phone numbers to avoid duplicate lead constraint
-      const phoneNumber = `555-999-${1000 + index}`;
+      const customerName = `TestUser_${Date.now()}_${index}`;
+      const phoneNumber = `555-${Math.floor(100 + Math.random() * 900)}-${Math.floor(1000 + Math.random() * 9000)}`;
       
       return fetch('/api/leads', {
         method: 'POST',
