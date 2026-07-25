@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon ML Summer School 2026 — Complete Study Guide</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+        :root {
+            --primary: #FF9900;
+            --primary-dark: #E88B00;
+            --amazon-dark: #131A22;
+            --accent-blue: #007EB9;
+            --accent-green: #00A36C;
+            --accent-red: #E63946;
+            --accent-purple: #7B2FBE;
+            --bg: #FAFBFC;
+            --card-bg: #FFFFFF;
+            --text: #1a1a2e;
+            --text-light: #555;
+            --border: #E1E4E8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 20px 30px; }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, var(--amazon-dark) 0%, #232F3E 50%, #37475A 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,153,0,0.1) 0%, transparent 60%);
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            position: relative;
+        }
+        .header h1 span { color: var(--primary); }
+        .header .subtitle {
+            font-size: 14px;
+            opacity: 0.85;
+            font-weight: 400;
+        }
+        .header .badge {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--amazon-dark);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 12px;
+            margin-top: 12px;
+        }
+
+        /* TOC */
+        .toc {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+        }
+        .toc h2 {
+            color: var(--primary-dark);
+            font-size: 18px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 8px;
+        }
+        .toc ol { padding-left: 20px; }
+        .toc li {
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+        .toc a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        /* SECTION HEADERS */
+        .section-header {
+            background: linear-gradient(135deg, var(--amazon-dark), #37475A);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin: 30px 0 20px 0;
+            page-break-after: avoid;
+        }
+        .section-header h2 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .section-header .section-tag {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--amazon-dark);
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        /* CARDS */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            page-break-inside: avoid;
+        }
+        .card h3 {
+            color: var(--accent-blue);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            border-left: 4px solid var(--primary);
+            padding-left: 12px;
+        }
+        .card h4 {
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 600;
+            margin: 12px 0 6px 0;
+        }
+
+        /* FORMULA BOX */
+        .formula {
+            background: #FFF8E1;
+            border: 1px solid #FFE082;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin: 8px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            overflow-x: auto;
+        }
+
+        /* IMPORTANT CALLOUT */
+        .callout {
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin: 12px 0;
+            font-size: 13px;
+        }
+        .callout-important {
+            background: #FFF3E0;
+            border-left: 4px solid var(--primary);
+        }
+        .callout-tip {
+            background: #E8F5E9;
+            border-left: 4px solid var(--accent-green);
+        }
+        .callout-warning {
+            background: #FFEBEE;
+            border-left: 4px solid var(--accent-red);
+        }
+        .callout-star {
+            background: #F3E5F5;
+            border-left: 4px solid var(--accent-purple);
+        }
+        .callout strong { display: block; margin-bottom: 4px; }
+
+        /* TABLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+        th {
+            background: var(--amazon-dark);
+            color: white;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        tr:nth-child(even) { background: #F8F9FA; }
+        tr:hover { background: #FFF8E1; }
+
+        /* MCQ STYLE */
+        .mcq {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 14px;
+            page-break-inside: avoid;
+        }
+        .mcq-question {
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .mcq-options { padding-left: 16px; margin-bottom: 8px; }
+        .mcq-options li {
+            margin-bottom: 3px;
+            list-style: upper-alpha;
+        }
+        .mcq-answer {
+            background: #E8F5E9;
+            border: 1px solid #A5D6A7;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-weight: 600;
+            color: #2E7D32;
+            font-size: 13px;
+        }
+        .mcq-explanation {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        /* CHEAT SHEET */
+        .cheatsheet {
+            background: linear-gradient(135deg, #1a1a2e, #16213E);
+            color: #E0E0E0;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 16px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+        .cheatsheet .cs-title {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .cheatsheet .cs-item {
+            padding-left: 16px;
+            border-left: 2px solid #37475A;
+            margin-bottom: 4px;
+        }
+        .cheatsheet .cs-formula { color: #81D4FA; }
+        .cheatsheet .cs-note { color: #A5D6A7; font-size: 11px; }
+
+        /* RESOURCE LINK */
+        .resource-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            page-break-inside: avoid;
+        }
+        .resource-card .emoji { font-size: 24px; }
+        .resource-card .info h4 { font-size: 14px; margin-bottom: 2px; color: var(--text); }
+        .resource-card .info p { font-size: 12px; color: var(--text-light); }
+        .resource-card .info a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 12px;
+            word-break: break-all;
+        }
+
+        /* STUDY PLAN */
+        .plan-day {
+            background: var(--card-bg);
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        .plan-day h3 {
+            color: var(--primary-dark);
+            border-left: none;
+            padding-left: 0;
+            font-size: 18px;
+        }
+        .plan-row {
+            display: flex;
+            gap: 8px;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border);
+            font-size: 13px;
+        }
+        .plan-time {
+            min-width: 100px;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+        .plan-topic {
+            min-width: 130px;
+            font-weight: 600;
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            body { font-size: 12px; }
+            .header { border-radius: 0; }
+            .container { padding: 10px; }
+            .card, .mcq, .plan-day { box-shadow: none; border: 1px solid #ccc; }
+            .section-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .cheatsheet { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .mcq-answer { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+
+        /* Utility */
+        .mt-8 { margin-top: 8px; }
+        .mb-8 { margin-bottom: 8px; }
+        .text-center { text-align: center; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 4px; }
+        .page-break { page-break-before: always; }
+
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: var(--amazon-dark);
+            border: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(255,153,0,0.4);
+            z-index: 1000;
+            transition: transform 0.2s;
+        }
+        .print-btn:hover { transform: scale(1.05); }
+        @media print { .print-btn { display: none; } }
+    </style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">📄 Save as PDF</button>
+
+<!-- HEADER -->
+<div class="header">
+    <h1>🎯 <span>Amazon</span> ML Summer School 2026</h1>
+    <h1>Complete Selection Test Study Guide</h1>
+    <div class="subtitle">Candidate: Krishna Sujit Abhang | Test: 28 June 2026, 2:00 PM IST | Duration: 60 min</div>
+    <div class="badge">PART A: 20 MCQs — ML • Probability • Statistics • Linear Algebra</div>
+</div>
+
+<div class="container">
+
+<!-- TEST PATTERN -->
+<div class="card">
+    <h3>📋 Test Pattern & Strategy</h3>
+    <table>
+        <tr><th>Section</th><th>Questions</th><th>Topics</th><th>Time</th></tr>
+        <tr><td><strong>Part A</strong></td><td>20 MCQs</td><td>ML Concepts, Probability, Statistics, Linear Algebra</td><td>~30 min</td></tr>
+        <tr><td><strong>Part B</strong></td><td>2 Coding</td><td>DSA (Easy-Medium)</td><td>~30 min</td></tr>
+    </table>
+    <div class="callout callout-tip">
+        <strong>💡 Strategy:</strong>
+        No negative marking (historically) — attempt ALL questions. Spend max 1.5 min per MCQ. Skip hard ones and come back. Probability + Linear Algebra carry the MOST weight.
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 1: PROBABILITY -->
+<!-- ============================================================ -->
+<div class="section-header">
+    <div class="section-tag">SECTION 1</div>
+    <h2>📊 Probability</h2>
+</div>
+
+<div class="card">
+    <h3>1.1 Basic Probability Rules</h3>
+    <div class="formula">
+        P(E) = Favorable outcomes / Total outcomes<br>
+        P(A ∪ B) = P(A) + P(B) − P(A ∩ B)<br>
+        P(A') = 1 − P(A)   [Complement Rule]
+    </div>
+    <h4>Mutually Exclusive Events</h4>
+    <p>A ∩ B = ∅ → P(A ∪ B) = P(A) + P(B)</p>
+</div>
+
+<div class="card">
+    <h3>1.2 Conditional Probability</h3>
+    <div class="formula">
+        P(A|B) = P(A ∩ B) / P(B),  where P(B) ≠ 0<br>
+        P(A ∩ B) = P(A|B) · P(B) = P(B|A) · P(A)   [Multiplication Rule]
+    </div>
+    <h4>Independence</h4>
+    <p>Events A, B are independent iff: <strong>P(A ∩ B) = P(A) · P(B)</strong></p>
+    <p>Equivalently: P(A|B) = P(A)</p>
+</div>
+
+<div class="card">
+    <h3>1.3 ⭐ Bayes' Theorem (MOST TESTED!)</h3>
+    <div class="callout callout-star">
+        <strong>🌟 #1 Most Asked Topic in Amazon ML Summer School MCQs!</strong>
+        Practice at least 10 Bayes' problems before the test.
+    </div>
+    <div class="formula">
+        P(A|B) = P(B|A) · P(A) / P(B)<br><br>
+        Extended: P(Aᵢ|B) = P(B|Aᵢ) · P(Aᵢ) / Σⱼ P(B|Aⱼ) · P(Aⱼ)
+    </div>
+    <h4>Terminology</h4>
+    <table>
+        <tr><th>Term</th><th>Symbol</th><th>Meaning</th></tr>
+        <tr><td>Prior</td><td>P(A)</td><td>Initial belief before evidence</td></tr>
+        <tr><td>Likelihood</td><td>P(B|A)</td><td>Probability of evidence given hypothesis</td></tr>
+        <tr><td>Posterior</td><td>P(A|B)</td><td>Updated belief after evidence</td></tr>
+        <tr><td>Evidence</td><td>P(B)</td><td>Total probability of evidence</td></tr>
+    </table>
+    <h4>Worked Example</h4>
+    <p><strong>Q:</strong> Factory has 2 machines. Machine A: 60% of items, 2% defect. Machine B: 40%, 5% defect. If item is defective, probability it came from A?</p>
+    <div class="formula">
+        P(A) = 0.6, P(B) = 0.4, P(D|A) = 0.02, P(D|B) = 0.05<br>
+        P(D) = 0.02×0.6 + 0.05×0.4 = 0.012 + 0.02 = 0.032<br>
+        P(A|D) = (0.02 × 0.6) / 0.032 = 0.012 / 0.032 = <strong>0.375 = 37.5%</strong>
+    </div>
+</div>
+
+<div class="card">
+    <h3>1.4 Expected Value & Variance</h3>
+    <div class="formula">
+        E[X] = Σ x · P(X=x)   [discrete]<br>
+        Var(X) = E[X²] − (E[X])²<br><br>
+        Properties:<br>
+        E[aX + b] = a·E[X] + b<br>
+        Var(aX + b) = a²·Var(X)   ← Adding constant does NOT change variance!<br>
+        E[X + Y] = E[X] + E[Y]   (always)<br>
+        E[XY] = E[X]·E[Y]   (only if independent)
+    </div>
+    <h4>Covariance & Correlation</h4>
+    <div class="formula">
+        Cov(X,Y) = E[XY] − E[X]·E[Y]<br>
+        ρ(X,Y) = Cov(X,Y) / (σₓ · σᵧ),   −1 ≤ ρ ≤ 1
+    </div>
+    <div class="callout callout-warning">
+        <strong>⚠️ Trap Question:</strong>
+        Cov(X,Y) = 0 does NOT mean X and Y are independent! It only means no LINEAR relationship. They could have a non-linear relationship.
+    </div>
+</div>
+
+<div class="card">
+    <h3>1.5 Important Distributions</h3>
+    <table>
+        <tr><th>Distribution</th><th>PMF / PDF</th><th>E[X]</th><th>Var(X)</th></tr>
+        <tr><td><strong>Bernoulli(p)</strong></td><td>P(1)=p, P(0)=1−p</td><td>p</td><td>p(1−p)</td></tr>
+        <tr><td><strong>Binomial(n,p)</strong></td><td>C(n,k)·pᵏ·(1−p)ⁿ⁻ᵏ</td><td>np</td><td>np(1−p)</td></tr>
+        <tr><td><strong>Poisson(λ)</strong></td><td>e⁻λ·λᵏ / k!</td><td>λ</td><td>λ</td></tr>
+        <tr><td><strong>Uniform(a,b)</strong></td><td>1/(b−a)</td><td>(a+b)/2</td><td>(b−a)²/12</td></tr>
+        <tr><td><strong>Normal(μ,σ²)</strong></td><td>(1/σ√2π)·e^(−(x−μ)²/2σ²)</td><td>μ</td><td>σ²</td></tr>
+        <tr><td><strong>Exponential(λ)</strong></td><td>λ·e⁻λˣ</td><td>1/λ</td><td>1/λ²</td></tr>
+    </table>
+    <div class="callout callout-important">
+        <strong>📌 Normal Distribution — 68-95-99.7 Rule:</strong>
+        68% of data within 1σ of mean | 95% within 2σ | 99.7% within 3σ
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 2: STATISTICS -->
+<!-- ============================================================ -->
+<div class="page-break"></div>
+<div class="section-header">
+    <div class="section-tag">SECTION 2</div>
+    <h2>📈 Statistics</h2>
+</div>
+
+<div class="card">
+    <h3>2.1 Descriptive Statistics</h3>
+    <table>
+        <tr><th>Measure</th><th>Formula</th><th>When to Use</th></tr>
+        <tr><td>Mean (x̄)</td><td>Σxᵢ / n</td><td>Symmetric data, no outliers</td></tr>
+        <tr><td>Median</td><td>Middle value (sorted)</td><td>Skewed data, outliers present</td></tr>
+        <tr><td>Mode</td><td>Most frequent value</td><td>Categorical data</td></tr>
+        <tr><td>Sample Variance</td><td>Σ(xᵢ−x̄)² / (n−1)</td><td>Estimating population variance</td></tr>
+        <tr><td>Std Deviation</td><td>√Variance</td><td>Same unit as data</td></tr>
+    </table>
+    <h4>Skewness</h4>
+    <ul>
+        <li><strong>Right-skewed (positive):</strong> Mean > Median > Mode, long tail on right</li>
+        <li><strong>Left-skewed (negative):</strong> Mean < Median < Mode, long tail on left</li>
+        <li><strong>Symmetric:</strong> Mean ≈ Median ≈ Mode</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h3>2.2 Hypothesis Testing</h3>
+    <table>
+        <tr><th></th><th>H₀ is True</th><th>H₀ is False</th></tr>
+        <tr><td><strong>Reject H₀</strong></td><td style="background:#FFEBEE;">Type I Error (α) — False Positive</td><td style="background:#E8F5E9;">✅ Correct (Power = 1−β)</td></tr>
+        <tr><td><strong>Fail to Reject</strong></td><td style="background:#E8F5E9;">✅ Correct</td><td style="background:#FFEBEE;">Type II Error (β) — False Negative</td></tr>
+    </table>
+    <div class="callout callout-tip">
+        <strong>💡 Memory Trick:</strong>
+        Type I = False Positive (convicting an innocent). Type II = False Negative (letting a guilty person go).
+        <br>p-value < α → Reject H₀ | p-value ≥ α → Fail to reject H₀
+    </div>
+</div>
+
+<div class="card">
+    <h3>2.3 Confidence Intervals & CLT</h3>
+    <div class="formula">
+        CI = x̄ ± z(α/2) · σ/√n<br>
+        90% CI: z = 1.645 | 95% CI: z = 1.96 | 99% CI: z = 2.576
+    </div>
+    <h4>Central Limit Theorem</h4>
+    <p>For n ≥ 30, the distribution of sample means approaches Normal distribution, regardless of population distribution.</p>
+    <div class="formula">X̄ ~ N(μ, σ²/n)</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 3: LINEAR ALGEBRA -->
+<!-- ============================================================ -->
+<div class="page-break"></div>
+<div class="section-header">
+    <div class="section-tag">SECTION 3</div>
+    <h2>🔢 Linear Algebra</h2>
+</div>
+
+<div class="card">
+    <h3>3.1 Vectors</h3>
+    <div class="formula">
+        Dot Product: a⃗ · b⃗ = Σ aᵢbᵢ = |a⃗||b⃗|cos θ<br>
+        Magnitude: |a⃗| = √(Σ aᵢ²)<br>
+        Unit Vector: â = a⃗ / |a⃗|<br><br>
+        L1 Norm (Manhattan): ‖a⃗‖₁ = Σ|aᵢ|<br>
+        L2 Norm (Euclidean): ‖a⃗‖₂ = √(Σ aᵢ²)
+    </div>
+    <div class="callout callout-important">
+        <strong>📌 Key Fact:</strong> Orthogonal vectors have dot product = 0. This is VERY frequently tested!
+    </div>
+</div>
+
+<div class="card">
+    <h3>3.2 Matrix Operations & Types</h3>
+    <table>
+        <tr><th>Type</th><th>Property</th></tr>
+        <tr><td>Identity (I)</td><td>Diagonal = 1, rest = 0; AI = IA = A</td></tr>
+        <tr><td>Symmetric</td><td>A = Aᵀ</td></tr>
+        <tr><td>Orthogonal</td><td>AᵀA = AAᵀ = I; so A⁻¹ = Aᵀ</td></tr>
+        <tr><td>Positive Definite</td><td>All eigenvalues > 0; xᵀAx > 0 for all x ≠ 0</td></tr>
+        <tr><td>Singular</td><td>det(A) = 0; NOT invertible</td></tr>
+    </table>
+    <div class="formula">
+        (AB)ᵀ = BᵀAᵀ<br>
+        (AB)⁻¹ = B⁻¹A⁻¹<br>
+        Matrix multiply: (m×n)(n×p) = (m×p)<br>
+        AB ≠ BA in general (NOT commutative!)
+    </div>
+</div>
+
+<div class="card">
+    <h3>3.3 Determinants</h3>
+    <div class="formula">
+        2×2: det|a b; c d| = ad − bc<br><br>
+        Properties:<br>
+        det(AB) = det(A) · det(B)<br>
+        det(Aᵀ) = det(A)<br>
+        det(cA) = cⁿ · det(A)  for n×n matrix<br>
+        det(A⁻¹) = 1/det(A)<br>
+        det(A) = 0 → matrix is SINGULAR (not invertible)<br>
+        Swapping two rows → changes sign of determinant
+    </div>
+    <h4>2×2 Inverse</h4>
+    <div class="formula">
+        [a b; c d]⁻¹ = (1/(ad−bc)) · [d −b; −c a]
+    </div>
+</div>
+
+<div class="card">
+    <h3>3.4 ⭐ Eigenvalues & Eigenvectors (FREQUENTLY ASKED!)</h3>
+    <div class="formula">
+        Av⃗ = λv⃗   where λ = eigenvalue, v⃗ = eigenvector<br><br>
+        To find eigenvalues: det(A − λI) = 0   [Characteristic Equation]
+    </div>
+    <div class="callout callout-star">
+        <strong>🌟 Must-Know Properties:</strong>
+    </div>
+    <table>
+        <tr><th>Property</th><th>Formula/Fact</th></tr>
+        <tr><td>Sum of eigenvalues</td><td>= trace(A) = Σ aᵢᵢ</td></tr>
+        <tr><td>Product of eigenvalues</td><td>= det(A)</td></tr>
+        <tr><td>Symmetric matrix</td><td>All eigenvalues are REAL</td></tr>
+        <tr><td>Positive definite</td><td>All eigenvalues > 0</td></tr>
+        <tr><td>Diagonal matrix</td><td>Eigenvalues = diagonal entries</td></tr>
+        <tr><td>Eigenvalues of A⁻¹</td><td>= 1/λ</td></tr>
+        <tr><td>Eigenvalues of Aᵏ</td><td>= λᵏ</td></tr>
+    </table>
+
+    <h4>Worked Example</h4>
+    <p>Find eigenvalues of A = [3 1; 1 3]</p>
+    <div class="formula">
+        det(A − λI) = (3−λ)² − 1 = λ² − 6λ + 8 = (λ−4)(λ−2) = 0<br>
+        <strong>Eigenvalues: λ₁ = 4, λ₂ = 2</strong><br>
+        Check: trace = 6 = 4+2 ✅ | det = 8 = 4×2 ✅
+    </div>
+</div>
+
+<div class="card">
+    <h3>3.5 Rank & SVD</h3>
+    <ul>
+        <li><strong>Rank</strong> = number of linearly independent rows/columns</li>
+        <li>Full rank: rank = min(m, n)</li>
+        <li>rank(A) = rank(Aᵀ)</li>
+    </ul>
+    <h4>SVD: A = UΣVᵀ</h4>
+    <ul>
+        <li>U: left singular vectors (orthogonal)</li>
+        <li>Σ: diagonal matrix of singular values</li>
+        <li>V: right singular vectors (orthogonal)</li>
+        <li>Used extensively in <strong>PCA</strong> and dimensionality reduction</li>
+    </ul>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 4: MACHINE LEARNING -->
+<!-- ============================================================ -->
+<div class="page-break"></div>
+<div class="section-header">
+    <div class="section-tag">SECTION 4</div>
+    <h2>🤖 Machine Learning Concepts</h2>
+</div>
+
+<div class="card">
+    <h3>4.1 Types of Learning</h3>
+    <table>
+        <tr><th>Type</th><th>Description</th><th>Examples</th></tr>
+        <tr><td><strong>Supervised</strong></td><td>Labeled data; learns input→output</td><td>Classification, Regression</td></tr>
+        <tr><td><strong>Unsupervised</strong></td><td>Unlabeled data; finds patterns</td><td>Clustering, PCA</td></tr>
+        <tr><td><strong>Semi-supervised</strong></td><td>Mix of labeled + unlabeled</td><td>Text classification</td></tr>
+        <tr><td><strong>Reinforcement</strong></td><td>Agent learns via rewards</td><td>Game AI, Robotics</td></tr>
+    </table>
+</div>
+
+<div class="card">
+    <h3>4.2 ⭐ Bias-Variance Tradeoff</h3>
+    <div class="formula">
+        Total Error = Bias² + Variance + Irreducible Error
+    </div>
+    <table>
+        <tr><th></th><th>Low Variance</th><th>High Variance</th></tr>
+        <tr><td><strong>Low Bias</strong></td><td style="background:#E8F5E9;">✅ Ideal</td><td style="background:#FFEBEE;">Overfitting</td></tr>
+        <tr><td><strong>High Bias</strong></td><td style="background:#FFF3E0;">Underfitting</td><td style="background:#FFEBEE;">Worst case</td></tr>
+    </table>
+    <div class="callout callout-tip">
+        <strong>💡 Quick Reference:</strong><br>
+        Underfitting → high bias, low variance → INCREASE model complexity<br>
+        Overfitting → low bias, high variance → REGULARIZE, get more data
+    </div>
+</div>
+
+<div class="card">
+    <h3>4.3 Regularization</h3>
+    <table>
+        <tr><th>Type</th><th>Penalty</th><th>Effect</th></tr>
+        <tr><td><strong>L1 (Lasso)</strong></td><td>λ Σ|θᵢ|</td><td>Sparse weights → Feature Selection</td></tr>
+        <tr><td><strong>L2 (Ridge)</strong></td><td>λ Σθᵢ²</td><td>Small weights → Handles multicollinearity</td></tr>
+        <tr><td><strong>Elastic Net</strong></td><td>λ₁Σ|θᵢ| + λ₂Σθᵢ²</td><td>Combination of both</td></tr>
+    </table>
+    <p>Increasing λ → simpler model → more bias, less variance</p>
+</div>
+
+<div class="card">
+    <h3>4.4 ⭐ Gradient Descent (FREQUENTLY ASKED!)</h3>
+    <div class="formula">
+        θ_new = θ_old − α · ∇J(θ)   where α = learning rate
+    </div>
+    <table>
+        <tr><th>Type</th><th>Batch Size</th><th>Speed</th><th>Stability</th></tr>
+        <tr><td>Batch GD</td><td>Entire dataset</td><td>Slow</td><td>Stable</td></tr>
+        <tr><td>Stochastic GD</td><td>1 sample</td><td>Fast</td><td>Noisy</td></tr>
+        <tr><td>Mini-batch GD</td><td>32, 64, 128</td><td>Balanced</td><td>Balanced</td></tr>
+    </table>
+
+    <h4>Gradient Descent vs Normal Equation</h4>
+    <table>
+        <tr><th>Gradient Descent</th><th>Normal Equation</th></tr>
+        <tr><td>Needs learning rate</td><td>No learning rate</td></tr>
+        <tr><td>Iterative</td><td>One-step: θ = (XᵀX)⁻¹Xᵀy</td></tr>
+        <tr><td>Good for large n features</td><td>Slow when n > 10,000</td></tr>
+        <tr><td>O(kn²)</td><td>O(n³)</td></tr>
+        <tr><td>Needs feature scaling</td><td>No feature scaling needed</td></tr>
+    </table>
+    <div class="callout callout-important">
+        <strong>📌 Previously Asked:</strong> "When prefer GD over Normal Equation?" → When features > 10,000 (Normal Eq computes (XᵀX)⁻¹ which is O(n³)).
+    </div>
+</div>
+
+<div class="card">
+    <h3>4.5 Loss Functions</h3>
+    <table>
+        <tr><th>Function</th><th>Formula</th><th>Use Case</th></tr>
+        <tr><td>MSE</td><td>(1/n) Σ(y−ŷ)²</td><td>Regression</td></tr>
+        <tr><td>MAE</td><td>(1/n) Σ|y−ŷ|</td><td>Regression (robust to outliers)</td></tr>
+        <tr><td>Cross-Entropy</td><td>−Σ y·log(ŷ)</td><td>Classification</td></tr>
+        <tr><td>Log Loss</td><td>−[y·log(p) + (1−y)·log(1−p)]</td><td>Logistic Regression</td></tr>
+        <tr><td>Hinge Loss</td><td>max(0, 1 − y·ŷ)</td><td>SVM</td></tr>
+    </table>
+</div>
+
+<div class="card">
+    <h3>4.6 Evaluation Metrics</h3>
+    <h4>Confusion Matrix</h4>
+    <table>
+        <tr><th></th><th>Predicted +</th><th>Predicted −</th></tr>
+        <tr><td><strong>Actual +</strong></td><td>TP</td><td>FN</td></tr>
+        <tr><td><strong>Actual −</strong></td><td>FP</td><td>TN</td></tr>
+    </table>
+    <div class="formula">
+        Accuracy = (TP+TN) / (TP+TN+FP+FN)<br>
+        Precision = TP / (TP+FP)  →  "Of predicted +, how many correct?"<br>
+        Recall = TP / (TP+FN)  →  "Of actual +, how many found?"<br>
+        F1 = 2·(P·R) / (P+R)  →  Harmonic mean<br>
+        Specificity = TN / (TN+FP)
+    </div>
+    <div class="callout callout-warning">
+        <strong>⚠️ Accuracy is MISLEADING for imbalanced datasets!</strong> Use F1, AUC-ROC, or Precision-Recall instead.
+    </div>
+</div>
+
+<div class="card">
+    <h3>4.7 Key Algorithms (Conceptual Summary)</h3>
+    <table>
+        <tr><th>Algorithm</th><th>Type</th><th>Key Points</th></tr>
+        <tr><td><strong>Linear Regression</strong></td><td>Supervised</td><td>ŷ = θᵀX, minimizes MSE, assumes linearity</td></tr>
+        <tr><td><strong>Logistic Regression</strong></td><td>Supervised</td><td>Sigmoid: σ(z)=1/(1+e⁻ᶻ), output [0,1], uses cross-entropy</td></tr>
+        <tr><td><strong>Decision Trees</strong></td><td>Supervised</td><td>Splits on Gini/Entropy, prone to overfitting</td></tr>
+        <tr><td><strong>Random Forest</strong></td><td>Ensemble</td><td>Bagging + feature randomization, reduces variance</td></tr>
+        <tr><td><strong>SVM</strong></td><td>Supervised</td><td>Max margin hyperplane, kernel trick for non-linear</td></tr>
+        <tr><td><strong>KNN</strong></td><td>Supervised</td><td>Majority vote of K neighbors, needs scaling</td></tr>
+        <tr><td><strong>Naive Bayes</strong></td><td>Supervised</td><td>Bayes + feature independence, great for text</td></tr>
+        <tr><td><strong>K-Means</strong></td><td>Unsupervised</td><td>Init centroids→assign→update→repeat, elbow method for K</td></tr>
+        <tr><td><strong>PCA</strong></td><td>Unsupervised</td><td>Max variance dirs, uses eigen decomposition/SVD</td></tr>
+    </table>
+    <div class="formula">
+        Gini Impurity = 1 − Σ pᵢ²<br>
+        Entropy = −Σ pᵢ · log₂(pᵢ)<br>
+        Info Gain = Parent Entropy − Weighted Avg Child Entropy
+    </div>
+</div>
+
+<div class="card">
+    <h3>4.8 Feature Scaling & Cross-Validation</h3>
+    <div class="formula">
+        Standardization: z = (x − μ) / σ   → mean=0, std=1<br>
+        Min-Max: x' = (x − x_min) / (x_max − x_min)   → range [0,1]
+    </div>
+    <div class="callout callout-tip">
+        <strong>💡 Which algorithms NEED scaling?</strong><br>
+        ✅ Need: KNN, SVM, K-Means, Neural Networks, Linear/Logistic Regression (with GD)<br>
+        ❌ Don't need: Decision Trees, Random Forest, Gradient Boosting
+    </div>
+    <h4>K-Fold Cross-Validation</h4>
+    <p>Split data into K folds → train on K−1, test on 1 → repeat K times → average. Common K: 5 or 10. Use <strong>Stratified K-Fold</strong> for imbalanced data.</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- PREVIOUS YEAR QUESTIONS -->
+<!-- ============================================================ -->
+<div class="page-break"></div>
+<div class="section-header">
+    <div class="section-tag">RECALLED FROM PREVIOUS YEARS</div>
+    <h2>📝 Previous Year Question Types</h2>
+</div>
+
+<div class="card">
+    <h3>Probability & Statistics (Previously Asked)</h3>
+    <ol>
+        <li><strong>Chessboard probability:</strong> Two kings placed randomly on 8×8 board. P(they don't attack each other)?</li>
+        <li><strong>Bayes' Theorem:</strong> Medical test — given sensitivity, specificity, prevalence → P(disease | positive test)</li>
+        <li><strong>Biased Coin:</strong> Pick a coin randomly (fair/biased), observe some flips → which coin?</li>
+        <li><strong>Variance calculation:</strong> Calculate variance from given dataset</li>
+        <li><strong>Correlation:</strong> Find correlation coefficient from joint probability distribution</li>
+        <li><strong>Normal distribution:</strong> P(value in specific range) using 68-95-99.7 rule</li>
+    </ol>
+</div>
+
+<div class="card">
+    <h3>Linear Algebra (Previously Asked)</h3>
+    <ol>
+        <li><strong>Eigenvalues:</strong> Matrix with 0s on diagonal and 1s elsewhere — find eigenvalues</li>
+        <li><strong>Matrix invertibility:</strong> Is given matrix invertible? What's the rank?</li>
+        <li><strong>Determinant:</strong> Calculate det of 3×3 matrix</li>
+        <li><strong>Trace-Eigenvalue relation:</strong> Given trace and det, find eigenvalues of 2×2 matrix</li>
+    </ol>
+</div>
+
+<div class="card">
+    <h3>Machine Learning (Previously Asked)</h3>
+    <ol>
+        <li><strong>GD vs Normal Equation:</strong> When to prefer which? (Answer: GD when n > 10,000)</li>
+        <li><strong>Bias-Variance:</strong> Identify overfitting/underfitting from error curves</li>
+        <li><strong>Regularization:</strong> Effect of increasing λ in L1 vs L2</li>
+        <li><strong>PCA:</strong> How many components for 95% variance?</li>
+        <li><strong>Metrics:</strong> Best metric for imbalanced datasets (Answer: F1-Score)</li>
+        <li><strong>Kernel Trick:</strong> Purpose in SVM</li>
+    </ol>
+</div>
+
+<!-- ============================================================ -->
+<!-- 50 PRACTICE MCQs -->
+<!-- ============================================================ -->
+<div class="page-break"></div>
+<div class="section-header">
+    <div class="section-tag">PRACTICE</div>
+    <h2>✅ 50 Practice MCQs with Answers</h2>
+</div>
+
+<!-- PROBABILITY MCQs -->
+<h3 style="margin: 20px 0 10px; color: var(--accent-blue);">Probability (Q1–Q15)</h3>
+
+<div class="mcq">
+    <div class="mcq-question">Q1. A bag has 3 red and 5 blue balls. Two drawn without replacement. P(both red)?</div>
+    <ol class="mcq-options"><li>3/28</li><li>3/8</li><li>9/64</li><li>6/56</li></ol>
+    <div class="mcq-answer">✅ A) 3/28</div>
+    <div class="mcq-explanation">P = (3/8)×(2/7) = 6/56 = 3/28</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q2. P(A)=0.4, P(B)=0.3, A and B independent. P(A∪B)?</div>
+    <ol class="mcq-options"><li>0.7</li><li>0.58</li><li>0.12</li><li>0.42</li></ol>
+    <div class="mcq-answer">✅ B) 0.58</div>
+    <div class="mcq-explanation">P(A∪B) = 0.4+0.3−0.4×0.3 = 0.58</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q3. Test: 95% sensitivity, 90% specificity, 1% prevalence. P(disease|positive)?</div>
+    <ol class="mcq-options"><li>95%</li><li>≈8.7%</li><li>50%</li><li>90%</li></ol>
+    <div class="mcq-answer">✅ B) ≈8.7%</div>
+    <div class="mcq-explanation">Bayes: (0.95×0.01)/(0.95×0.01+0.10×0.99) = 0.0095/0.1085 ≈ 0.087</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q4. Poisson(λ=3), P(X=0)?</div>
+    <ol class="mcq-options"><li>e⁻³</li><li>3e⁻³</li><li>0</li><li>1/3</li></ol>
+    <div class="mcq-answer">✅ A) e⁻³</div>
+    <div class="mcq-explanation">P(X=0) = e⁻³·3⁰/0! = e⁻³</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q5. X ~ N(5, 4). P(X < 5)?</div>
+    <ol class="mcq-options"><li>0.25</li><li>0.5</li><li>0.75</li><li>0.68</li></ol>
+    <div class="mcq-answer">✅ B) 0.5</div>
+    <div class="mcq-explanation">Normal is symmetric about mean. P(X < μ) = 0.5 always.</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q6. Two dice thrown. P(sum = 7)?</div>
+    <ol class="mcq-options"><li>1/6</li><li>1/12</li><li>7/36</li><li>5/36</li></ol>
+    <div class="mcq-answer">✅ A) 1/6</div>
+    <div class="mcq-explanation">6 favorable pairs out of 36 total = 1/6</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q7. E[X]=3, E[X²]=13. Var(X)?</div>
+    <ol class="mcq-options"><li>10</li><li>4</li><li>9</li><li>16</li></ol>
+    <div class="mcq-answer">✅ B) 4</div>
+    <div class="mcq-explanation">Var(X) = E[X²]−(E[X])² = 13−9 = 4</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q8. Independent events: P(A∩B)=0.12, P(A)=0.4. P(B)?</div>
+    <ol class="mcq-options"><li>0.3</li><li>0.48</li><li>0.52</li><li>0.08</li></ol>
+    <div class="mcq-answer">✅ A) 0.3</div>
+    <div class="mcq-explanation">P(B) = P(A∩B)/P(A) = 0.12/0.4 = 0.3</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q9. Expected value of a fair six-sided die?</div>
+    <ol class="mcq-options"><li>3</li><li>3.5</li><li>4</li><li>3.25</li></ol>
+    <div class="mcq-answer">✅ B) 3.5</div>
+    <div class="mcq-explanation">(1+2+3+4+5+6)/6 = 21/6 = 3.5</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q10. Biased coin P(H)=0.6. P(exactly 2H in 3 tosses)?</div>
+    <ol class="mcq-options"><li>0.288</li><li>0.432</li><li>0.36</li><li>0.216</li></ol>
+    <div class="mcq-answer">✅ B) 0.432</div>
+    <div class="mcq-explanation">C(3,2)·0.6²·0.4¹ = 3×0.36×0.4 = 0.432</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q11. If Cov(X,Y)=0, which is definitely true?</div>
+    <ol class="mcq-options"><li>X and Y are independent</li><li>No linear relationship</li><li>Negatively correlated</li><li>X causes Y</li></ol>
+    <div class="mcq-answer">✅ B) No linear relationship</div>
+    <div class="mcq-explanation">Cov=0 → no LINEAR relationship, but non-linear may exist. Independence implies Cov=0 but NOT vice versa.</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q12. Variance of Bernoulli(0.3)?</div>
+    <ol class="mcq-options"><li>0.09</li><li>0.21</li><li>0.3</li><li>0.7</li></ol>
+    <div class="mcq-answer">✅ B) 0.21</div>
+    <div class="mcq-explanation">Var = p(1−p) = 0.3×0.7 = 0.21</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q13. In Bayes' theorem, P(A) is called:</div>
+    <ol class="mcq-options"><li>Likelihood</li><li>Posterior</li><li>Prior</li><li>Evidence</li></ol>
+    <div class="mcq-answer">✅ C) Prior</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q14. Var(3X + 5) = ?</div>
+    <ol class="mcq-options"><li>3Var(X)+5</li><li>9Var(X)</li><li>9Var(X)+25</li><li>9Var(X)+5</li></ol>
+    <div class="mcq-answer">✅ B) 9Var(X)</div>
+    <div class="mcq-explanation">Var(aX+b) = a²·Var(X). Constants don't affect variance.</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q15. P(A|B) = P(A). Then:</div>
+    <ol class="mcq-options"><li>Mutually exclusive</li><li>Independent</li><li>P(B)=0</li><li>A ⊂ B</li></ol>
+    <div class="mcq-answer">✅ B) Independent</div>
+</div>
+
+<!-- LINEAR ALGEBRA MCQs -->
+<h3 style="margin: 20px 0 10px; color: var(--accent-blue);">Linear Algebra (Q16–Q30)</h3>
+
+<div class="mcq">
+    <div class="mcq-question">Q16. Dot product of orthogonal vectors?</div>
+    <ol class="mcq-options"><li>1</li><li>−1</li><li>0</li><li>Undefined</li></ol>
+    <div class="mcq-answer">✅ C) 0</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q17. Trace of 3×3 identity matrix?</div>
+    <ol class="mcq-options"><li>0</li><li>1</li><li>3</li><li>9</li></ol>
+    <div class="mcq-answer">✅ C) 3</div>
+    <div class="mcq-explanation">Trace = 1+1+1 = 3</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q18. A is 3×4, B is 4×2. Dimension of AB?</div>
+    <ol class="mcq-options"><li>3×2</li><li>4×4</li><li>3×4</li><li>Not defined</li></ol>
+    <div class="mcq-answer">✅ A) 3×2</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q19. Eigenvalues of diag(2, 5)?</div>
+    <ol class="mcq-options"><li>2 and 5</li><li>7 and 0</li><li>10 and 0</li><li>2 and 0</li></ol>
+    <div class="mcq-answer">✅ A) 2 and 5</div>
+    <div class="mcq-explanation">For diagonal matrices, eigenvalues = diagonal elements.</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q20. If det(A) = 0, then A is:</div>
+    <ol class="mcq-options"><li>Invertible</li><li>Singular</li><li>Positive definite</li><li>Orthogonal</li></ol>
+    <div class="mcq-answer">✅ B) Singular (not invertible)</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q21. Eigenvalues 3 and 7. Determinant?</div>
+    <ol class="mcq-options"><li>10</li><li>21</li><li>4</li><li>−4</li></ol>
+    <div class="mcq-answer">✅ B) 21</div>
+    <div class="mcq-explanation">Product of eigenvalues = det. 3×7 = 21.</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q22. (AB)ᵀ = ?</div>
+    <ol class="mcq-options"><li>AᵀBᵀ</li><li>BᵀAᵀ</li><li>AB</li><li>BA</li></ol>
+    <div class="mcq-answer">✅ B) BᵀAᵀ</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q23. Rank of 3×3 identity matrix?</div>
+    <ol class="mcq-options"><li>0</li><li>1</li><li>3</li><li>9</li></ol>
+    <div class="mcq-answer">✅ C) 3</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q24. Which decomposition is used in PCA?</div>
+    <ol class="mcq-options"><li>LU</li><li>QR</li><li>Eigen/SVD</li><li>Cholesky</li></ol>
+    <div class="mcq-answer">✅ C) Eigen Decomposition / SVD</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q25. Symmetric matrix eigenvalues are always:</div>
+    <ol class="mcq-options"><li>Positive</li><li>Real</li><li>Imaginary</li><li>Zero</li></ol>
+    <div class="mcq-answer">✅ B) Real</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q26. det([1 2; 3 4]) = ?</div>
+    <ol class="mcq-options"><li>−2</li><li>2</li><li>10</li><li>−10</li></ol>
+    <div class="mcq-answer">✅ A) −2</div>
+    <div class="mcq-explanation">1×4 − 2×3 = 4−6 = −2</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q27. Two vectors are linearly dependent if:</div>
+    <ol class="mcq-options"><li>Dot product = 0</li><li>One is scalar multiple of other</li><li>Same magnitude</li><li>Perpendicular</li></ol>
+    <div class="mcq-answer">✅ B) One is a scalar multiple of the other</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q28. Inverse of orthogonal matrix Q is:</div>
+    <ol class="mcq-options"><li>Q</li><li>Qᵀ</li><li>−Q</li><li>Does not exist</li></ol>
+    <div class="mcq-answer">✅ B) Qᵀ</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q29. Trace of [3 1 2; 0 5 4; 1 2 7]?</div>
+    <ol class="mcq-options"><li>12</li><li>15</li><li>18</li><li>25</li></ol>
+    <div class="mcq-answer">✅ B) 15</div>
+    <div class="mcq-explanation">3+5+7 = 15</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q30. Positive definite matrix — all eigenvalues are:</div>
+    <ol class="mcq-options"><li>Zero</li><li>Negative</li><li>Positive</li><li>Complex</li></ol>
+    <div class="mcq-answer">✅ C) Positive</div>
+</div>
+
+<!-- ML MCQs -->
+<h3 style="margin: 20px 0 10px; color: var(--accent-blue);">Machine Learning (Q31–Q50)</h3>
+
+<div class="mcq">
+    <div class="mcq-question">Q31. Features >> samples. Best algorithm?</div>
+    <ol class="mcq-options"><li>KNN</li><li>SVM with RBF</li><li>SVM with linear kernel</li><li>Decision Tree</li></ol>
+    <div class="mcq-answer">✅ C) SVM with linear kernel</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q32. L1 regularization produces:</div>
+    <ol class="mcq-options"><li>Dense weights</li><li>Sparse weights (some = 0)</li><li>All weights = 1</li><li>Negative weights only</li></ol>
+    <div class="mcq-answer">✅ B) Sparse weights</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q33. K-Means with K = n (number of points)?</div>
+    <ol class="mcq-options"><li>Error</li><li>Each point = own cluster, SSE=0</li><li>One big cluster</li><li>Random</li></ol>
+    <div class="mcq-answer">✅ B) Each point is its own cluster, SSE = 0</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q34. Train acc 99%, test acc 55%. The model is:</div>
+    <ol class="mcq-options"><li>Underfitting</li><li>Overfitting</li><li>Well-generalized</li><li>Biased</li></ol>
+    <div class="mcq-answer">✅ B) Overfitting</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q35. Sigmoid function output range?</div>
+    <ol class="mcq-options"><li>(−∞, ∞)</li><li>[0, 1]</li><li>[−1, 1]</li><li>[0, ∞)</li></ol>
+    <div class="mcq-answer">✅ B) [0, 1]</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q36. NOT a valid SVM kernel?</div>
+    <ol class="mcq-options"><li>Linear</li><li>Polynomial</li><li>Sigmoid</li><li>Logarithmic</li></ol>
+    <div class="mcq-answer">✅ D) Logarithmic</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q37. Random Forest reduces overfitting via:</div>
+    <ol class="mcq-options"><li>Deeper trees</li><li>Bagging + feature randomization</li><li>Pruning one tree</li><li>Increasing learning rate</li></ol>
+    <div class="mcq-answer">✅ B) Bagging and feature randomization</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q38. Which does NOT need feature scaling?</div>
+    <ol class="mcq-options"><li>KNN</li><li>SVM</li><li>Decision Tree</li><li>Linear Regression (GD)</li></ol>
+    <div class="mcq-answer">✅ C) Decision Tree</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q39. Kernel trick in SVM:</div>
+    <ol class="mcq-options"><li>Speeds training</li><li>Maps to higher dim without explicit computation</li><li>Reduces features</li><li>Handles missing values</li></ol>
+    <div class="mcq-answer">✅ B) Maps data to higher-dimensional space implicitly</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q40. Logistic regression cost function?</div>
+    <ol class="mcq-options"><li>MSE</li><li>Cross-Entropy (Log Loss)</li><li>Hinge Loss</li><li>Huber Loss</li></ol>
+    <div class="mcq-answer">✅ B) Cross-Entropy</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q41. Elbow Method determines:</div>
+    <ol class="mcq-options"><li>Learning rate</li><li>Optimal K in K-Means</li><li>Best split feature</li><li>Convergence criteria</li></ol>
+    <div class="mcq-answer">✅ B) Optimal number of clusters K</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q42. Which trains models SEQUENTIALLY?</div>
+    <ol class="mcq-options"><li>Bagging</li><li>Random Forest</li><li>Boosting</li><li>Stacking</li></ol>
+    <div class="mcq-answer">✅ C) Boosting</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q43. Increasing K in KNN:</div>
+    <ol class="mcq-options"><li>More complex boundary</li><li>Smoother boundary</li><li>More overfitting</li><li>Faster training</li></ol>
+    <div class="mcq-answer">✅ B) Smoother decision boundary (more bias, less variance)</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q44. PCA finds directions of:</div>
+    <ol class="mcq-options"><li>Minimum variance</li><li>Maximum variance</li><li>Zero variance</li><li>Constant variance</li></ol>
+    <div class="mcq-answer">✅ B) Maximum variance</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q45. Increasing regularization parameter λ:</div>
+    <ol class="mcq-options"><li>More complex model</li><li>Simpler model (more bias)</li><li>Higher learning rate</li><li>More features</li></ol>
+    <div class="mcq-answer">✅ B) Simpler model</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q46. Best metric for highly imbalanced classification?</div>
+    <ol class="mcq-options"><li>Accuracy</li><li>F1-Score</li><li>R-squared</li><li>MAE</li></ol>
+    <div class="mcq-answer">✅ B) F1-Score</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q47. Learning rate too large in GD:</div>
+    <ol class="mcq-options"><li>Very slow convergence</li><li>Overshoots and diverges</li><li>Always converges</li><li>Loss becomes convex</li></ol>
+    <div class="mcq-answer">✅ B) Overshoots and diverges</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q48. Naive Bayes is "naive" because:</div>
+    <ol class="mcq-options"><li>Uses Bayes' theorem</li><li>Assumes all features independent given class</li><li>Only numerical features</li><li>No prior probabilities</li></ol>
+    <div class="mcq-answer">✅ B) Assumes all features independent given class</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q49. Normal Equation for linear regression:</div>
+    <ol class="mcq-options"><li>Iterative optimization</li><li>Exact: θ = (XᵀX)⁻¹Xᵀy</li><li>Better for large datasets</li><li>Requires learning rate</li></ol>
+    <div class="mcq-answer">✅ B) Gives closed-form solution</div>
+</div>
+
+<div class="mcq">
+    <div class="mcq-question">Q50. Which is unsupervised?</div>
+    <ol class="mcq-options"><li>Linear Regression</li><li>Logistic Regression</li><li>K-Means Clustering</li><li>Random Forest</li></ol>
+    <div class="mcq-answer">✅ C) K-Means Clustering</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- CHEAT SHEET -->
+<!-- ============================================================ -->
+<div class="page-break"></div>
+<div class="section-header">
+    <div class="section-tag">QUICK REVISION</div>
+    <h2>⚡ Formula Cheat Sheet</h2>
+</div>
+
+<div class="cheatsheet">
+    <div class="cs-title">📊 PROBABILITY</div>
+    <div class="cs-item"><span class="cs-formula">P(A∪B) = P(A) + P(B) − P(A∩B)</span></div>
+    <div class="cs-item"><span class="cs-formula">P(A|B) = P(A∩B) / P(B)</span></div>
+    <div class="cs-item"><span class="cs-formula">Bayes: P(A|B) = P(B|A)·P(A) / P(B)</span> <span class="cs-note">← MOST IMPORTANT!</span></div>
+    <div class="cs-item"><span class="cs-formula">E[X] = Σ x·P(x)</span></div>
+    <div class="cs-item"><span class="cs-formula">Var(X) = E[X²] − (E[X])²</span></div>
+    <div class="cs-item"><span class="cs-formula">Var(aX+b) = a²·Var(X)</span></div>
+    <div class="cs-item"><span class="cs-formula">Binomial: C(n,k)·pᵏ·(1−p)ⁿ⁻ᵏ → E=np, V=np(1−p)</span></div>
+    <div class="cs-item"><span class="cs-formula">Poisson: e⁻λ·λᵏ/k! → E=λ, V=λ</span></div>
+    <div class="cs-item"><span class="cs-formula">Normal: 68% in 1σ, 95% in 2σ, 99.7% in 3σ</span></div>
+</div>
+
+<div class="cheatsheet">
+    <div class="cs-title">🔢 LINEAR ALGEBRA</div>
+    <div class="cs-item"><span class="cs-formula">det(2×2) = ad − bc</span></div>
+    <div class="cs-item"><span class="cs-formula">Eigenvalues: det(A − λI) = 0</span></div>
+    <div class="cs-item"><span class="cs-formula">Σ eigenvalues = trace(A)</span> <span class="cs-note">← Frequently tested!</span></div>
+    <div class="cs-item"><span class="cs-formula">Π eigenvalues = det(A)</span></div>
+    <div class="cs-item"><span class="cs-formula">(AB)ᵀ = BᵀAᵀ</span></div>
+    <div class="cs-item"><span class="cs-formula">(AB)⁻¹ = B⁻¹A⁻¹</span></div>
+    <div class="cs-item"><span class="cs-formula">Orthogonal vectors: dot product = 0</span></div>
+    <div class="cs-item"><span class="cs-formula">Symmetric → eigenvalues are REAL</span></div>
+    <div class="cs-item"><span class="cs-formula">Positive definite → eigenvalues > 0</span></div>
+</div>
+
+<div class="cheatsheet">
+    <div class="cs-title">🤖 MACHINE LEARNING</div>
+    <div class="cs-item"><span class="cs-formula">GD: θ = θ − α·∇J(θ)</span></div>
+    <div class="cs-item"><span class="cs-formula">Normal Eq: θ = (XᵀX)⁻¹Xᵀy</span></div>
+    <div class="cs-item"><span class="cs-formula">Sigmoid: σ(z) = 1/(1+e⁻ᶻ)</span></div>
+    <div class="cs-item"><span class="cs-formula">MSE = (1/n)·Σ(y−ŷ)²</span></div>
+    <div class="cs-item"><span class="cs-formula">Precision = TP/(TP+FP)</span></div>
+    <div class="cs-item"><span class="cs-formula">Recall = TP/(TP+FN)</span></div>
+    <div class="cs-item"><span class="cs-formula">F1 = 2·P·R/(P+R)</span></div>
+    <div class="cs-item"><span class="cs-formula">Gini = 1 − Σpᵢ²</span></div>
+    <div class="cs-item"><span class="cs-formula">Entropy = −Σ pᵢ·log₂(pᵢ)</span></div>
+    <div class="cs-item"><span class="cs-formula">L1 → sparse (feature selection) | L2 → small weights</span></div>
+    <div class="cs-item"><span class="cs-formula">Error = Bias² + Variance + Irreducible</span></div>
+</div>
+
+<!-- QUICK CONCEPT TABLE -->
+<div class="card">
+    <h3>⚡ Rapid-Fire Concept Checks</h3>
+    <table>
+        <tr><th>Question</th><th>Answer</th></tr>
+        <tr><td>Overfitting = ?</td><td>High variance, low bias</td></tr>
+        <tr><td>Underfitting = ?</td><td>High bias, low variance</td></tr>
+        <tr><td>L1 does what?</td><td>Feature selection (sparse weights)</td></tr>
+        <tr><td>L2 does what?</td><td>Weight shrinkage (small weights)</td></tr>
+        <tr><td>Cov=0 means?</td><td>No LINEAR relationship (NOT independence!)</td></tr>
+        <tr><td>det(A)=0 means?</td><td>Singular, NOT invertible</td></tr>
+        <tr><td>Diagonal matrix eigenvalues?</td><td>The diagonal elements themselves</td></tr>
+        <tr><td>Symmetric eigenvalues?</td><td>Always REAL</td></tr>
+        <tr><td>Accuracy bad when?</td><td>Imbalanced datasets</td></tr>
+        <tr><td>PCA finds?</td><td>Directions of MAXIMUM variance</td></tr>
+        <tr><td>Kernel trick?</td><td>Implicit high-dim mapping</td></tr>
+        <tr><td>CLT says?</td><td>Sample means → Normal as n→∞</td></tr>
+        <tr><td>GD vs Normal Eq?</td><td>GD for large n, NE for small n</td></tr>
+        <tr><td>Bagging reduces?</td><td>Variance (Random Forest)</td></tr>
+        <tr><td>Boosting reduces?</td><td>Bias (AdaBoost, XGBoost)</td></tr>
+        <tr><td>High K in KNN?</td><td>Smoother boundary, more bias</td></tr>
+        <tr><td>High λ regularization?</td><td>Simpler model, more bias</td></tr>
+    </table>
+</div>
+
+<!-- ============================================================ -->
+<!-- STUDY PLAN -->
+<!-- ============================================================ -->
+<div class="page-break"></div>
+<div class="section-header">
+    <div class="section-tag">ACTION PLAN</div>
+    <h2>📅 2-Day Study Plan</h2>
+</div>
+
+<div class="plan-day">
+    <h3>📅 Day 1 — June 27 (Mathematics Focus)</h3>
+    <div class="plan-row"><span class="plan-time">9:00–11:00</span><span class="plan-topic">Probability</span>Study Bayes' Theorem, conditional prob. Solve 10+ Bayes problems</div>
+    <div class="plan-row"><span class="plan-time">11:00–12:00</span><span class="plan-topic">Distributions</span>Memorize Binomial, Poisson, Normal formulas. E[X], Var(X) practice</div>
+    <div class="plan-row"><span class="plan-time">12:00–1:00</span><span class="plan-topic">🍽️ Lunch</span>Take a break, eat well</div>
+    <div class="plan-row"><span class="plan-time">1:00–3:00</span><span class="plan-topic">Linear Algebra</span>Matrices, determinants, eigenvalues. Do 5+ eigenvalue problems</div>
+    <div class="plan-row"><span class="plan-time">3:00–4:00</span><span class="plan-topic">Statistics</span>Hypothesis testing, CLT, confidence intervals</div>
+    <div class="plan-row"><span class="plan-time">4:00–4:30</span><span class="plan-topic">☕ Break</span>Rest your mind</div>
+    <div class="plan-row"><span class="plan-time">4:30–6:00</span><span class="plan-topic">Practice MCQs</span>Solve Q1–Q30 from this guide + online MCQs</div>
+    <div class="plan-row"><span class="plan-time">8:00–9:30</span><span class="plan-topic">Revision</span>Review formulas, redo mistakes, write cheat sheet by hand</div>
+</div>
+
+<div class="plan-day">
+    <h3>📅 Day 2 — June 28 (ML Focus + TEST DAY!)</h3>
+    <div class="plan-row"><span class="plan-time">8:00–9:30</span><span class="plan-topic">ML Concepts</span>Bias-Variance, Regularization, Gradient Descent, Loss Functions</div>
+    <div class="plan-row"><span class="plan-time">9:30–10:30</span><span class="plan-topic">ML Algorithms</span>Review all algorithms conceptually (don't code, just understand)</div>
+    <div class="plan-row"><span class="plan-time">10:30–11:30</span><span class="plan-topic">Practice MCQs</span>Solve Q31–Q50 + any online mock tests</div>
+    <div class="plan-row"><span class="plan-time">11:30–12:30</span><span class="plan-topic">Full Revision</span>Go through Cheat Sheet 3 times — memorize!</div>
+    <div class="plan-row"><span class="plan-time">12:30–1:30</span><span class="plan-topic">🍽️ Lunch</span>Eat well, relax, don't stress</div>
+    <div class="plan-row"><span class="plan-time">1:30–1:55</span><span class="plan-topic">Final Glance</span>Quick look at formulas one last time</div>
+    <div class="plan-row" style="background: #FFF3E0; border-radius: 8px; padding: 12px;"><span class="plan-time" style="color: var(--accent-red);">🎯 2:00 PM</span><span class="plan-topic" style="color: var(--accent-red);">TEST TIME!</span><strong>Stay calm. Attempt ALL questions. Skip hard ones first.</strong></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- RESOURCES -->
+<!-- ============================================================ -->
+<div class="page-break"></div>
+<div class="section-header">
+    <div class="section-tag">RESOURCES</div>
+    <h2>🔗 Learning Resources & Links</h2>
+</div>
+
+<h3 style="margin: 16px 0 10px; color: var(--accent-blue);">📺 YouTube — Must Watch</h3>
+
+<div class="resource-card">
+    <div class="emoji">🎬</div>
+    <div class="info">
+        <h4>3Blue1Brown — Essence of Linear Algebra</h4>
+        <p>Best visual intuition for linear algebra (3 hrs)</p>
+        <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab</a>
+    </div>
+</div>
+
+<div class="resource-card">
+    <div class="emoji">📊</div>
+    <div class="info">
+        <h4>StatQuest with Josh Starmer</h4>
+        <p>Best ML concept explanations (pick topics you need)</p>
+        <a href="https://www.youtube.com/c/joshstarmer">youtube.com/c/joshstarmer</a>
+    </div>
+</div>
+
+<div class="resource-card">
+    <div class="emoji">🐍</div>
+    <div class="info">
+        <h4>Krish Naik — Complete ML in 6 Hours</h4>
+        <p>Full ML overview in one video</p>
+        <a href="https://www.youtube.com/watch?v=JxgmHe2NyeY">youtube.com/watch?v=JxgmHe2NyeY</a>
+    </div>
+</div>
+
+<div class="resource-card">
+    <div class="emoji">📐</div>
+    <div class="info">
+        <h4>freeCodeCamp — Linear Algebra Crash Course</h4>
+        <p>Comprehensive LA for AI/ML (~6 hrs)</p>
+        <a href="https://www.youtube.com/watch?v=l_a6h06Rj7U">youtube.com/watch?v=l_a6h06Rj7U</a>
+    </div>
+</div>
+
+<div class="resource-card">
+    <div class="emoji">🎓</div>
+    <div class="info">
+        <h4>Khan Academy — Probability & Statistics</h4>
+        <p>Fundamentals with examples</p>
+        <a href="https://www.youtube.com/c/khanacademy">youtube.com/c/khanacademy</a>
+    </div>
+</div>
+
+<h3 style="margin: 16px 0 10px; color: var(--accent-blue);">📖 Reading & Practice</h3>
+
+<div class="resource-card">
+    <div class="emoji">💻</div>
+    <div class="info">
+        <h4>GeeksforGeeks — ML MCQs</h4>
+        <p>Practice MCQs on all ML topics</p>
+        <a href="https://www.geeksforgeeks.org/machine-learning-mcq-quiz/">geeksforgeeks.org/machine-learning-mcq-quiz</a>
+    </div>
+</div>
+
+<div class="resource-card">
+    <div class="emoji">🤖</div>
+    <div class="info">
+        <h4>Google ML Crash Course</h4>
+        <p>Interactive ML fundamentals by Google</p>
+        <a href="https://developers.google.com/machine-learning/crash-course">developers.google.com/machine-learning/crash-course</a>
+    </div>
+</div>
+
+<div class="resource-card">
+    <div class="emoji">📋</div>
+    <div class="info">
+        <h4>Stanford CS229 Cheat Sheets</h4>
+        <p>Best quick reference for ML concepts</p>
+        <a href="https://stanford.edu/~shervine/teaching/cs-229/">stanford.edu/~shervine/teaching/cs-229</a>
+    </div>
+</div>
+
+<div class="resource-card">
+    <div class="emoji">📚</div>
+    <div class="info">
+        <h4>Mathematics for ML (Free Book)</h4>
+        <p>Deep theory for all math foundations</p>
+        <a href="https://mml-book.github.io/">mml-book.github.io</a>
+    </div>
+</div>
+
+<div class="resource-card">
+    <div class="emoji">🧠</div>
+    <div class="info">
+        <h4>Analytics Vidhya — ML Practice</h4>
+        <p>Articles, quizzes, and practice problems</p>
+        <a href="https://www.analyticsvidhya.com/">analyticsvidhya.com</a>
+    </div>
+</div>
+
+<h3 style="margin: 16px 0 10px; color: var(--accent-blue);">📁 GitHub Repositories</h3>
+
+<div class="resource-card">
+    <div class="emoji">📦</div>
+    <div class="info">
+        <h4>Amazon ML Summer School Resources</h4>
+        <p>Community-maintained previous year questions & materials</p>
+        <a href="https://github.com/search?q=Amazon+ML+Summer+School">Search: "Amazon ML Summer School" on GitHub</a>
+    </div>
+</div>
+
+<div class="resource-card">
+    <div class="emoji">📦</div>
+    <div class="info">
+        <h4>Stanford CS229 ML Cheat Sheets (GitHub)</h4>
+        <p>Comprehensive reference cards</p>
+        <a href="https://github.com/afshinea/stanford-cs-229-machine-learning">github.com/afshinea/stanford-cs-229-machine-learning</a>
+    </div>
+</div>
+
+<h3 style="margin: 16px 0 10px; color: var(--accent-blue);">📝 Quick Practice MCQ Sites</h3>
+
+<table>
+    <tr><th>Site</th><th>Best For</th><th>Link</th></tr>
+    <tr><td>Testbook</td><td>Probability & Statistics MCQs</td><td>testbook.com</td></tr>
+    <tr><td>Sanfoundry</td><td>Linear Algebra MCQs</td><td>sanfoundry.com</td></tr>
+    <tr><td>IndiaBIX</td><td>Probability aptitude</td><td>indiabix.com</td></tr>
+    <tr><td>LeetCode Discuss</td><td>ML interview experiences</td><td>leetcode.com/discuss</td></tr>
+    <tr><td>HackerRank</td><td>Coding (Part B)</td><td>hackerrank.com</td></tr>
+</table>
+
+<!-- FOOTER -->
+<div style="margin-top: 40px; padding: 30px; background: linear-gradient(135deg, var(--amazon-dark), #37475A); color: white; border-radius: 12px; text-align: center;">
+    <h2 style="color: var(--primary); margin-bottom: 10px;">🚀 All the Best, Krishna!</h2>
+    <p style="opacity: 0.9;">You've already proven yourself by getting shortlisted. Now go ace this test!</p>
+    <p style="font-size: 12px; margin-top: 8px; opacity: 0.6;">This guide covers Part A (MCQs). Part B (Coding) preparation coming next.</p>
+    <p style="font-size: 11px; margin-top: 12px; opacity: 0.5;">📄 Click the orange "Save as PDF" button (bottom-right) or press Ctrl+P → Save as PDF</p>
+</div>
+
+</div><!-- container end -->
+
+</body>
+</html>

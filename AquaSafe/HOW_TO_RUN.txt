@@ -1,0 +1,41 @@
+=====================================================
+  AquaSafe — Quick Start Guide
+  FOSSEE Scilab GUIVerse Hackathon 2026 | IIT Bombay
+=====================================================
+
+REQUIREMENTS
+  - Scilab 6.0 or later (tested on Scilab 2026.1.0)
+  - No extra toolboxes needed
+
+HOW TO RUN
+  1. Open Scilab
+  2. In the Scilab console, type:
+
+     exec('C:\path\to\AquaSafe\run_aquasafe.sce')
+
+     (Replace C:\path\to\AquaSafe\ with the actual folder path)
+
+  3. The AquaSafe dashboard opens automatically.
+
+HOW TO USE
+  1. Enter water parameter values in the edit boxes
+     OR drag the sliders — edit boxes update live
+  2. Watch boxes turn GREEN (safe) or RED (exceeds limit)
+  3. Click CALCULATE WQI to see the score + charts
+  4. Click EXPORT REPORT (PDF) to save a report
+     → In browser: press Ctrl+P → Save as PDF
+  5. Click RESET to start a new assessment
+
+FILES IN THIS PACKAGE
+  run_aquasafe.sce     ← Run this to start the app
+  aquasafe_engine.sci  ← WQI engine + all callbacks + charts
+  AquaSafe.sci         ← GUI layout builder
+  README.md            ← Full documentation
+  PROBLEM_STATEMENT.md ← Problem statement for submission
+  HOW_TO_RUN.txt       ← This file
+
+CONTACT
+  For questions about the Hackathon:
+  contact@scilab.in
+
+=====================================================
