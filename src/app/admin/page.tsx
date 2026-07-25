@@ -1,5 +1,7 @@
 'use client';
 
+import React from 'react';
+
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 
@@ -241,8 +243,8 @@ export default function AdminPage() {
                     const isExpanded = expandedId === lead.id;
                     const isUpdating = updating === lead.id;
                     return (
-                      <>
-                        <tr key={lead.id} className={`ld-tr ${isExpanded ? 'ld-tr-expanded' : ''}`}>
+                      <React.Fragment key={lead.id}>
+                        <tr className={`ld-tr ${isExpanded ? 'ld-tr-expanded' : ''}`}>
                           <td className="ld-td">
                             <button
                               className="ld-contact-cell"
@@ -282,7 +284,7 @@ export default function AdminPage() {
                           </td>
                         </tr>
                         {isExpanded && (
-                          <tr key={`${lead.id}-expanded`} className="ld-tr-message">
+                          <tr className="ld-tr-message">
                             <td colSpan={5} className="ld-td-message">
                               <div className="ld-message-bubble">
                                 <span className="ld-message-label">Project Brief</span>
@@ -291,7 +293,7 @@ export default function AdminPage() {
                             </td>
                           </tr>
                         )}
-                      </>
+                      </React.Fragment>
                     );
                   })}
                 </tbody>
